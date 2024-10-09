@@ -11,22 +11,22 @@ public class TextBoxTests {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.browserSize = "1920x1080";  // Устанавливаем размер окна браузера
-        Configuration.pageLoadStrategy = "eager";  // Ускоренная загрузка страницы
+        Configuration.browserSize = "1920x1080";
+        Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.timeout = 5000;  // Таймаут в 5 секунд
+        Configuration.timeout = 5000;
     }
 
     @Test
     void formTest() {
         open("/text-box");
-        $("#userName").setValue("Alex");  // Вводим имя
-        $("#userEmail").setValue("alex@mail.ru");  // Вводим email
-        $("#currentAddress").setValue("Moscow");  // Вводим текущий адрес
-        $("#permanentAddress").setValue("Rostov");  // Вводим постоянный адрес
-        $("#submit").click();  // Кликаем на кнопку "Submit"
+        $("#userName").setValue("Alex");
+        $("#userEmail").setValue("alex@mail.ru");
+        $("#currentAddress").setValue("Moscow");
+        $("#permanentAddress").setValue("Rostov");
+        $("#submit").click();
 
-        // Проверяем результат
+
         $("#output").$("#name").shouldHave(text("Alex"));
         $("#output").$("#email").shouldHave(text("alex@mail.ru"));
         $("#output").$("#currentAddress").shouldHave(text("Moscow"));
